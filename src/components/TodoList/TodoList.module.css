@@ -1,0 +1,8 @@
+.taskButton{
+    padding: 0 0.2rem;
+    margin: 0 0.2rem;
+}
+
+.todoList li{
+    margin-bottom: 0.2rem;
+}
