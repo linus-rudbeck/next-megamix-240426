@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
             <Link href={'/'}>Home</Link>
             <Link href={'/cookies'}>Cookies</Link>
             <Link href={'/todos'}>Todos</Link>
+            <Link href={'/events'}>Events</Link>
           </nav>
         </header>
 

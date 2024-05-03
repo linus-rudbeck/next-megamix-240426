@@ -3,6 +3,7 @@
 import styles from "./TodoList.module.css"
 
 import { useEffect, useState } from "react";
+import { HiOutlineCheck, HiOutlineX  } from 'react-icons/hi'
 
 export default function TodoList() {
 
@@ -39,10 +40,11 @@ export default function TodoList() {
         saveTasks(updatedTasks)
     }
 
-    const completeTask = (id) => {
+    const toggleCompleteTask = (id) => {
         const updatedTasks = tasks.map(t => {
             if (t.id === id) {
-                return { ...t, completed: true }
+                const completed = !t.completed;
+                return { ...t, completed: completed }
             }
             return t;
         });
@@ -55,7 +57,17 @@ export default function TodoList() {
         <ul className={styles.todoList}>
             {tasks.map(t => (
                 <li key={t.id}>
-                    {t.completed === true ? "✅" : ""}
+
+                    <button
+                        type="button"
+                        onClick={() => toggleCompleteTask(t.id)}
+                        className={styles.taskButton}>
+
+                            {t.completed === true ? <HiOutlineCheck /> : <HiOutlineX /> }
+                            
+                        </button>
+
+                        
 
                     {t.text}
 
@@ -63,12 +75,6 @@ export default function TodoList() {
                         type="button"
                         onClick={() => deleteTask(t.id)}
                         className={styles.taskButton}>🗑</button>
-
-
-                    {t.completed === false ? <button
-                        type="button"
-                        onClick={() => completeTask(t.id)}
-                        className={styles.taskButton}>✔</button> : ""}
 
                 </li>
             ))}

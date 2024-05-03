@@ -1,6 +1,9 @@
 .taskButton{
-    padding: 0 0.2rem;
+    padding: 0.2rem;
     margin: 0 0.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .todoList li{
